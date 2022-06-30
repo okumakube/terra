@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Git Checkout') {
       steps {
-        git credentialsId: '16**-**-**-**-**cb', url: 'https://git-codecommit.us-west-2.amazonaws.com/v1/repos/TerraformJenkins'
+        git checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'GITHUB-DETAILS', url: 'https://github.com/okumakube/terra']]])
       }
     }
 
